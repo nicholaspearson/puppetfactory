@@ -18,7 +18,11 @@
         Built-in to Mac OSX and Linux:
         <ol>
           <li>Start Terminal.app or any terminal emulator to get to the command line</li>
-          <li>Run <code>ssh <%= request.host %></code></li>
+          <% if @current %>
+          <li>Run <code>ssh <%= @current[:username] %>@<%= request.host %></code></li>
+          <% else %>
+          <li>Run <code>ssh username@<%= request.host %></code></li>
+          <% end %>
         </ol>
       </li>
       <li>
